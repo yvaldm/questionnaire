@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import * as questions from './questions.json';
 
 @Component({
   selector: 'app-root',
@@ -7,8 +8,17 @@ import {Component} from '@angular/core';
 })
 
 export class AppComponent {
-  favoriteSeason: string;
-  seasons: string[] = ['Winter', 'Spring', 'Summer', 'Autumn'];
+  answer: int;
   value: any;
+  questionCnt = 0;
 
+  constructor() {
+    this.value = questions.default[0];
+  }
+
+  nextQuestion() {
+
+    this.value = questions.default[this.questionCnt];
+    this.questionCnt++;
+  }
 }
