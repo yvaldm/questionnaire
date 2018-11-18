@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
-
 import * as questions from './questions.json';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -14,11 +14,13 @@ export class AppComponent {
   answer: any;
   value: any;
   questionCnt = 0;
+  router: Router;
 
-  constructor() {
+  constructor(private rt: Router) {
     this.value = questions.default[0];
     this.success = false;
     this.showResult = false;
+    this.router = rt;
   }
 
   checkAnswer() {
@@ -37,9 +39,11 @@ export class AppComponent {
 
   nextQuestion() {
     this.showResult = false;
+    this.answer = '';
 
     this.questionCnt++;
     if (this.questionCnt >= questions.default.length) {
+      this.router.navigate(['/finished']);
       return;
     }
 
