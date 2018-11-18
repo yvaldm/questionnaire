@@ -5,13 +5,15 @@ import {MatRadioModule} from '@angular/material/radio';
 import {FormsModule} from '@angular/forms';
 import {FinishedComponent} from './finished/finished.component';
 import {RouterModule, Routes} from '@angular/router';
+import {TestComponent} from './test/test.component';
 
+const routes: Routes = [
 
-const routes: Routes = [{
-  path: 'questionnaire',
-  redirectTo: 'questionnaire',
-  pathMatch: 'full'
-},
+  {
+    path: 'questionnaire',
+    redirectTo: 'questionnaire',
+    pathMatch: 'full'
+  },
   {
     path: 'questionnaire',
     component: AppComponent
@@ -31,7 +33,8 @@ const routes: Routes = [{
 @NgModule({
   declarations: [
     AppComponent,
-    FinishedComponent
+    FinishedComponent,
+    TestComponent
   ],
   imports: [
     BrowserModule,
